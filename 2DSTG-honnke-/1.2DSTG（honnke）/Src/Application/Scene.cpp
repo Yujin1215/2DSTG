@@ -3,14 +3,12 @@
 #include"Object/Player/Player.h"
 #include"Object/Enemy/Enemy.h"
 #include"Object/Enemy/Enemy1.h"
+#include"Object/Enemy/Enemy2.h"
 #include"Object/Bullet/Bullet.h"
 
 void Scene::Draw2D()
 {
-	for (int i = 0; i < m_objList.size(); i++)
-	{
-		m_objList[i]->Draw();
-	}
+	for (int i = 0; i < m_objList.size(); i++)m_objList[i]->Draw();
 
 }
 
@@ -34,20 +32,21 @@ void Scene::Update()
 		}
 	}
 
-	//3%の確率で敵を出現させる
-	if (rand() % 100 < 0.5)
+	//enemy
+	if (rand() % 100 < 5)
 	{
 		//1体分インスタンスを生成＆初期化してリストへ追加
 		std::shared_ptr<Enemy>enemy;
 		enemy = std::make_shared<Enemy>();
 
 		enemy->Init();
-		enemy->SetPos(640.0f, 0.0f);
-		enemy->SetMovePow({ -2.0f, -2.0f, 0.0f });
+		enemy->SetPos(rand() % 1280-640, 360.0f);
+		enemy->SetMove({ -0.0f, -3.0f, 0.0f });
 
 		m_objList.push_back(enemy);
 	}
-	if (rand() % 100 < 0.5)
+	//enemy1
+	if (rand() % 100 < 0.0)
 	{
 		std::shared_ptr<Enemy1>enemy1;
 		enemy1 = std::make_shared<Enemy1>();
@@ -58,6 +57,24 @@ void Scene::Update()
 
 		m_objList.push_back(enemy1);
 	}
+	//enemy2
+	if (rand() % 100 < 0.0)
+	{
+		std::shared_ptr<Enemy2>enemy2;
+		enemy2 = std::make_shared<Enemy2>();
+
+		enemy2->Init();
+		enemy2->SetPos(640.0f, 360.0f);
+		enemy2->SetMove({ 10.0f, -1.0f, 0.0f });
+
+		m_objList.push_back(enemy2);
+	}
+
+
+
+
+	//============================================================================
+
 	//全オブジェクトの更新関数を一括で呼ぶ
 	for (int i = 0; i < m_objList.size(); i++)//size()はMAX値
 	{
@@ -74,16 +91,6 @@ void Scene::Init()
 	player->SetOwner(this);
 	m_objList.push_back(player);
 
-
-	//Enemy
-	for (int i = 0; i < 10; i++)
-	{
-		std::shared_ptr<Enemy>enemy;
-		enemy = std::make_shared<Enemy>();
-		enemy->Init();
-		enemy->SetPos(-640.0f + (i * 128.0f), (360.0f));
-		m_objList.push_back(enemy);
-	}
 }
 
 void Scene::Release()

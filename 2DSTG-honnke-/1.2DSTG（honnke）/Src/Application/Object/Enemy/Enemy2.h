@@ -4,11 +4,11 @@
 
 class Scene;
 
-class Enemy:public BaseObject 
+class Enemy2 :public BaseObject
 {
 public:
-	Enemy(){}
-	~Enemy() { Release(); }
+	Enemy2() {}
+	~Enemy2() { Release(); }
 
 	void Update()override;
 	void Draw() override;
@@ -22,7 +22,7 @@ public:
 	void SetMove(Math::Vector3 _move) { m_move = _move; }
 
 private:
-	
+
 	Math::Vector3 m_move;
 
 	Scene* m_owner = nullptr;
