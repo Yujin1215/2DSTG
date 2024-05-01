@@ -9,15 +9,12 @@
 void Scene::Draw2D()
 {
 	for (int i = 0; i < m_objList.size(); i++)m_objList[i]->Draw();
-
 }
 
 void Scene::Update()
 {
-
 	//イテレータ作成　auto版
 	auto it = m_objList.begin();
-
 	while (it != m_objList.end())//end\89は最後の要素の１つうしろを返す
 	{
 		//オブジェクトの有効チェック
@@ -32,8 +29,10 @@ void Scene::Update()
 		}
 	}
 
+	//============================================================================
+
 	//enemy
-	if (rand() % 100 < 5)
+	if (rand() % 100 < 0.0)
 	{
 		//1体分インスタンスを生成＆初期化してリストへ追加
 		std::shared_ptr<Enemy>enemy;
@@ -46,13 +45,13 @@ void Scene::Update()
 		m_objList.push_back(enemy);
 	}
 	//enemy1
-	if (rand() % 100 < 0.0)
+	if (rand() % 100 < 10.0)
 	{
 		std::shared_ptr<Enemy1>enemy1;
 		enemy1 = std::make_shared<Enemy1>();
 
 		enemy1->Init();
-		enemy1->SetPos(640.0f, 360.0f);
+		enemy1->SetPos(rand() % 640 - 320, 360.0f);
 		enemy1->SetMove({ 0.0f, -1.0f, 0.0f });
 
 		m_objList.push_back(enemy1);
@@ -64,7 +63,7 @@ void Scene::Update()
 		enemy2 = std::make_shared<Enemy2>();
 
 		enemy2->Init();
-		enemy2->SetPos(640.0f, 360.0f);
+		enemy2->SetPos(rand() % 1280 - 640, 360.0f);
 		enemy2->SetMove({ 10.0f, -1.0f, 0.0f });
 
 		m_objList.push_back(enemy2);
