@@ -21,14 +21,14 @@ public:
 
 
 
-	void SetMovePow(Math::Vector3 _move) { m_move = _move; }
+	void SetMove(Math::Vector3 _move) { m_move = _move; }
 
 private:
 
-	//Math::Vector3 m_move;
+	Math::Vector3 m_move;
 
 	Scene* m_owner = nullptr;
 
 	float angle=0;
-
+	float shotWait = 0;
 };

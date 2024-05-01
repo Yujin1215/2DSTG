@@ -161,6 +161,7 @@
     <ClInclude Include="..\Library\tinygltf\tiny_gltf.h" />
     <ClInclude Include="Src\Application\Object\Baseobject.h" />
     <ClInclude Include="Src\Application\Object\Bullet\Bullet.h" />
+    <ClInclude Include="Src\Application\Object\Bullet\Enemybullet.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Enemy.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Enemy1.h" />
     <ClInclude Include="Src\Application\Object\Player\Player.h" />
@@ -192,6 +193,7 @@
     <ClCompile Include="..\Library\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Src\Application\Object\Baseobject.cpp" />
     <ClCompile Include="Src\Application\Object\Bullet\Bullet.cpp" />
+    <ClCompile Include="Src\Application\Object\Bullet\Enemybullet.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Enemy.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Enemy1.cpp" />
     <ClCompile Include="Src\Application\Object\Player\Player.cpp" />

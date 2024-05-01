@@ -47,15 +47,14 @@ void Scene::Update()
 
 		m_objList.push_back(enemy);
 	}
-	if (rand() % 100 < 5)
+	if (rand() % 100 < 0.5)
 	{
 		std::shared_ptr<Enemy1>enemy1;
 		enemy1 = std::make_shared<Enemy1>();
 
 		enemy1->Init();
-		enemy1->SetPos(640.0f, 0.0f);
-		enemy1->SetMovePow({ 0.0f, -3.0f, 0.0f });
-		//enemy1->SetAngle();
+		enemy1->SetPos(640.0f, 360.0f);
+		enemy1->SetMove({ 0.0f, -1.0f, 0.0f });
 
 		m_objList.push_back(enemy1);
 	}

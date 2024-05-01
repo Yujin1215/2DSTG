@@ -19,9 +19,7 @@ public:
 private:
 
 	Scene* m_owner = nullptr;
-
-	float shotwait = 0;
-
+	float shotWait = 0;
 
 };
 

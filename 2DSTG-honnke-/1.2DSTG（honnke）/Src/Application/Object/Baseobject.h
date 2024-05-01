@@ -49,4 +49,6 @@ protected:
 
 	ObjectType m_objType;
 
+	
+
 };

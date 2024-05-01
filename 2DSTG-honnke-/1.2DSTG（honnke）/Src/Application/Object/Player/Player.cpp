@@ -11,7 +11,7 @@ void Player::Update()
 	//弾発射
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{	
-		if (shotwait < 0)
+		if (shotWait < 0)
 		{
 			//弾1個分のインスタンスの生成＆初期化してリストに追加
 			std::shared_ptr<Bullet>bullet;
@@ -20,13 +20,13 @@ void Player::Update()
 			bullet->Init();				//初期化
 			bullet->SetPos(m_pos);		//発射位置＝自動座標
 			bullet->SetOwner(m_owner);	//オーナーを渡しておく
-			shotwait = 10;
+			shotWait = 10;
 
 			m_owner->AddObject(bullet);//リストを追加
 		}
 	}
 
-	shotwait--;
+	shotWait--;
 
 
 	//============================================================
