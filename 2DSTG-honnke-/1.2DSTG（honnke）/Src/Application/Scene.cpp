@@ -6,6 +6,8 @@
 #include"Object/Enemy/Enemy2.h"
 #include"Object/Bullet/Bullet.h"
 
+
+
 void Scene::Draw2D()
 {
 	for (int i = 0; i < m_objList.size(); i++)m_objList[i]->Draw();
@@ -38,21 +40,37 @@ void Scene::Update()
 		std::shared_ptr<Enemy>enemy;
 		enemy = std::make_shared<Enemy>();
 
+		int moveY = 0;
+		moveY = rand() % 5 + 1;
+		moveY *= -1;
+
+		int moveX = 0;
+		moveX = rand() % 5 + 1;
+		moveX *= -1;
+
 		enemy->Init();
 		enemy->SetPos(rand() % 1280-640, 360.0f);
-		enemy->SetMove({ -0.0f, -3.0f, 0.0f });
+		enemy->SetMove({ 0.0f, (float)moveY, 0.0f });
 
 		m_objList.push_back(enemy);
 	}
 	//enemy1
-	if (rand() % 100 < 10.0)
+	if (rand() % 100 < 0.0)
 	{
 		std::shared_ptr<Enemy1>enemy1;
 		enemy1 = std::make_shared<Enemy1>();
 
+		int moveY = 0;
+		moveY = rand() % 5+1 ;
+		moveY *= -1;
+
+		int moveX = 0;
+		moveX = rand() % 5 + 1;
+		moveX *= -1;
+
 		enemy1->Init();
-		enemy1->SetPos(rand() % 640 - 320, 360.0f);
-		enemy1->SetMove({ 0.0f, -1.0f, 0.0f });
+		enemy1->SetPos(640.0f, 600.0f);
+		enemy1->SetMove({ (float)moveX,(float)moveY, 0.0f});
 
 		m_objList.push_back(enemy1);
 	}
@@ -62,9 +80,17 @@ void Scene::Update()
 		std::shared_ptr<Enemy2>enemy2;
 		enemy2 = std::make_shared<Enemy2>();
 
+		int moveY = 0;
+		moveY = rand() % 5 + 1;
+		moveY *= -1;
+
+		int moveX = 0;
+		moveX = rand() % 5 + 1;
+		if (rand() % 100 < 50)	moveX *= -1;
+
 		enemy2->Init();
 		enemy2->SetPos(rand() % 1280 - 640, 360.0f);
-		enemy2->SetMove({ 10.0f, -1.0f, 0.0f });
+		enemy2->SetMove({ (float)moveX,(float)moveY, 0.0f });
 
 		m_objList.push_back(enemy2);
 	}

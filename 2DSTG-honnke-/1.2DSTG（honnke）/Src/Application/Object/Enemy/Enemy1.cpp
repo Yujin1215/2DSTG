@@ -12,7 +12,8 @@ void Enemy1::Update()
 	{
 		angle -= 360;
 	}
-	m_pos.x = sin(DirectX::XMConvertToRadians(angle)) * 360;
+		m_pos.x = sin(DirectX::XMConvertToRadians(angle)) * 360;
+
 
 	if (m_pos.y < -400)m_aliveFlg = false;
 
