@@ -1,6 +1,5 @@
 #include"../../Scene.h"
 #include "Enemy1.h"
-#include "../Bullet/EnemyBullet.h"
 
 
 void Enemy1::Update()
@@ -12,10 +11,12 @@ void Enemy1::Update()
 	{
 		angle -= 360;
 	}
-		m_pos.x = sin(DirectX::XMConvertToRadians(angle)) * 360;
+		m_pos.y = sin(DirectX::XMConvertToRadians(angle)) * 360;
 
 
-	if (m_pos.y < -400)m_aliveFlg = false;
+	if (m_pos.x < -640)m_aliveFlg = false;
+
+
 
 	Math::Matrix transMat;
 	transMat = Math::Matrix::CreateTranslation(m_pos.x,m_pos.y,0);

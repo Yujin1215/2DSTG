@@ -19,3 +19,7 @@ void BaseObject::Release()
 void BaseObject::Hit()
 {
 }
+
+void BaseObject::Up()
+{
+}

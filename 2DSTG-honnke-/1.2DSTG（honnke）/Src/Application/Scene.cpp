@@ -4,13 +4,20 @@
 #include"Object/Enemy/Enemy.h"
 #include"Object/Enemy/Enemy1.h"
 #include"Object/Enemy/Enemy2.h"
-#include"Object/Bullet/Bullet.h"
+#include"Object/Bullet/Bullet0.h"
+#include"Object/Bullet/Bullet1.h"
+#include"Object/Bullet/Bullet2A.h"
+#include"Object/Bullet/Bullet2B.h"
+#include"Object/Bullet/Bullet3.h"
+#include"Object/Item/Item.h"
 
 
 
 void Scene::Draw2D()
 {
 	for (int i = 0; i < m_objList.size(); i++)m_objList[i]->Draw();
+
+	//SHADER.m_spriteShader.DrawString(-400, 300, "スコア %c",);
 }
 
 void Scene::Update()
@@ -31,10 +38,10 @@ void Scene::Update()
 		}
 	}
 
-	//============================================================================
+	//Enemy=======================================================================
 
 	//enemy
-	if (rand() % 100 < 0.0)
+	if (rand() % 100 < 5.0)
 	{
 		//1体分インスタンスを生成＆初期化してリストへ追加
 		std::shared_ptr<Enemy>enemy;
@@ -49,13 +56,14 @@ void Scene::Update()
 		moveX *= -1;
 
 		enemy->Init();
-		enemy->SetPos(rand() % 1280-640, 360.0f);
-		enemy->SetMove({ 0.0f, (float)moveY, 0.0f });
-
+		enemy->SetPos(640, rand() % 720 - 360);
+		enemy->SetMove({ (float)moveX, 0.0f,  0.0f });
+	
 		m_objList.push_back(enemy);
+
 	}
 	//enemy1
-	if (rand() % 100 < 0.0)
+	if (rand() % 100 < 5.0)
 	{
 		std::shared_ptr<Enemy1>enemy1;
 		enemy1 = std::make_shared<Enemy1>();
@@ -69,13 +77,13 @@ void Scene::Update()
 		moveX *= -1;
 
 		enemy1->Init();
-		enemy1->SetPos(640.0f, 600.0f);
+		enemy1->SetPos(640.0f, 0.0f);
 		enemy1->SetMove({ (float)moveX,(float)moveY, 0.0f});
 
 		m_objList.push_back(enemy1);
 	}
 	//enemy2
-	if (rand() % 100 < 0.0)
+	if (rand() % 100 < 5.0)
 	{
 		std::shared_ptr<Enemy2>enemy2;
 		enemy2 = std::make_shared<Enemy2>();
@@ -89,16 +97,14 @@ void Scene::Update()
 		if (rand() % 100 < 50)	moveX *= -1;
 
 		enemy2->Init();
-		enemy2->SetPos(rand() % 1280 - 640, 360.0f);
+		enemy2->SetPos(640,rand() % 720 - 360);
 		enemy2->SetMove({ (float)moveX,(float)moveY, 0.0f });
 
 		m_objList.push_back(enemy2);
 	}
 
+	//Enemy=======================================================================
 
-
-
-	//============================================================================
 
 	//全オブジェクトの更新関数を一括で呼ぶ
 	for (int i = 0; i < m_objList.size(); i++)//size()はMAX値
@@ -110,17 +116,18 @@ void Scene::Update()
 void Scene::Init()
 {
 	//Player
-	std::shared_ptr<Player>player;			//インスタンス生成
-	player = std::make_shared<Player>();	//実体の確保
-	player->Init();							//初期化
-	player->SetOwner(this);
-	m_objList.push_back(player);
+	{
+		std::shared_ptr<Player>player;			//インスタンス生成
+		player = std::make_shared<Player>();	//実体の確保
+		player->Init();							//初期化
+		player->SetMove( {5,5,0});
+		player->SetOwner(this);
+		m_objList.push_back(player);
+	}
 
 }
 
-void Scene::Release()
-{
-}
+void Scene::Release(){}
 
 void Scene::ImGuiUpdate()
 {

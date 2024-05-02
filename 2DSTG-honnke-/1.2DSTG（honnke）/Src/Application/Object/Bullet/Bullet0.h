@@ -3,11 +3,11 @@
 
 class Scene;
 
-class Bullet:public BaseObject
+class Bullet0 :public BaseObject
 {
 public:
-	Bullet() { Init(); }
-	~Bullet() { Release(); }
+	Bullet0() { Init(); }
+	~Bullet0() { Release(); }
 
 	void Update()override;
 	void Draw() override;
@@ -18,17 +18,16 @@ public:
 
 
 	void SetPos(Math::Vector3 _pos) { m_pos = _pos; }
-	void SetMovePow(Math::Vector3 _move) { m_move = _move; }
+	void SetMove(Math::Vector3 _move) { m_move = _move; }
 
 	void SetOwner(Scene* _owner) { m_owner = _owner; }
 
 private:
 
 
-	Math::Vector3 m_movePow;
+	Math::Vector3 m_move;
 
 	Scene* m_owner = nullptr;
 
-	bool Key = false;
 
 };

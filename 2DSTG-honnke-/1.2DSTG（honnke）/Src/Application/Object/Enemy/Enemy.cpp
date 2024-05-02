@@ -4,12 +4,14 @@
 
 void Enemy::Update()
 {
-	Math::Matrix transMat;
 	m_pos += m_move;
-	if (m_pos.y < -360)
+	if (m_pos.x < -640)
 	{
 		m_aliveFlg = false;
 	}
+
+
+	Math::Matrix transMat;
 	transMat = Math::Matrix::CreateTranslation(m_pos);
 	m_mat = transMat;
 }
@@ -32,8 +34,7 @@ void Enemy::Init()
 }
 
 void Enemy::Release()
-{
-}
+{}
 
 void Enemy::Hit()
 {

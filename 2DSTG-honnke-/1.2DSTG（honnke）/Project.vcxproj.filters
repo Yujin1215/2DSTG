@@ -64,6 +64,9 @@
     <Filter Include="Src\Application\Scene\BaseScene\GameSecne">
       <UniqueIdentifier>{7b3ba285-11d0-4fe9-9440-295094639066}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Object\Item">
+      <UniqueIdentifier>{79dc31ac-8afe-47d4-ac3b-24bef046084a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -153,7 +156,7 @@
     <ClInclude Include="..\Library\strconv.h">
       <Filter>Library</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Object\Bullet\Bullet.h">
+    <ClInclude Include="Src\Application\Object\Bullet\Bullet1.h">
       <Filter>Src\Application\Object\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Src\Application\Object\Enemy\Enemy.h">
@@ -182,6 +185,21 @@
     </ClInclude>
     <ClInclude Include="Src\Application\Object\Enemy\Enemy2.h">
       <Filter>Src\Application\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Item\Item.h">
+      <Filter>Src\Application\Object\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Bullet\Bullet2A.h">
+      <Filter>Src\Application\Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Bullet\Bullet3.h">
+      <Filter>Src\Application\Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Bullet\Bullet2B.h">
+      <Filter>Src\Application\Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Bullet\Bullet0.h">
+      <Filter>Src\Application\Object\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -245,7 +263,7 @@
     <ClCompile Include="src\System\Window\KdGameWindow.cpp">
       <Filter>Src\System\Window</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Object\Bullet\Bullet.cpp">
+    <ClCompile Include="Src\Application\Object\Bullet\Bullet1.cpp">
       <Filter>Src\Application\Object\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Baseobject.cpp">
@@ -271,6 +289,21 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Enemy\Enemy2.cpp">
       <Filter>Src\Application\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Item\Item.cpp">
+      <Filter>Src\Application\Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Bullet\Bullet2A.cpp">
+      <Filter>Src\Application\Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Bullet\Bullet3.cpp">
+      <Filter>Src\Application\Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Bullet\Bullet2B.cpp">
+      <Filter>Src\Application\Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Bullet\Bullet0.cpp">
+      <Filter>Src\Application\Object\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

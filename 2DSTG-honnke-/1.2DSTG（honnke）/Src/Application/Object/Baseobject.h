@@ -3,8 +3,9 @@
 class BaseObject
 {
 public:
-	BaseObject(){}
-	virtual~BaseObject(){}
+	BaseObject() {}
+	virtual~BaseObject() {}
+
 
 	//オブジェクトの種類
 	enum class ObjectType
@@ -12,7 +13,13 @@ public:
 		Player,
 		Enemy,
 		Enemy1,
+		Enemy2,
+		Bullet0,
 		Bullet,
+		Bullet2A,
+		Bullet2B,
+		Bullet3,
+		Item,
 	};
 
 	//仮想関数
@@ -21,9 +28,11 @@ public:
 	virtual void Init();
 	virtual void Release();
 	virtual void Hit();
+	virtual void Up();
 
 	//セッター
 	void SetTexture(std::string _fileName) { m_tex.Load(_fileName); }//ファイルパスでLoad（string型）
+	void SetAlive(bool _aliveFlg) { m_aliveFlg = _aliveFlg; }
 
 	//ゲッター
 	ObjectType GetObjType() { return m_objType; }
@@ -46,6 +55,9 @@ protected:
 
 	//フラグ
 	bool m_aliveFlg = true;
+	float m_upFlg = 0;
+
+	float g = 0;
 
 	ObjectType m_objType;
 

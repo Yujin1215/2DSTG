@@ -35,6 +35,7 @@ public:
 		m_objList.push_back(_obj);
 	}
 
+
 private:
 
 	//全オブジェクトを可変長配列で管理
@@ -42,7 +43,8 @@ private:
 
 
 
-	Scene() {}
+
+ 	Scene() {}
 
 public:
 	static Scene& GetInstance()

@@ -13,8 +13,11 @@ public:
 	void Init() override;
 	void Release() override;
 
+	void SetMove(Math::Vector3 _move) { m_move = _move; }
 	void SetOwner(Scene* _owner) { m_owner = _owner; }
 	void Hit()override { m_aliveFlg = false; }
+
+	void Up()override { m_upFlg++; }
 
 private:
 
