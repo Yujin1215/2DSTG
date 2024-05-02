@@ -5,11 +5,7 @@
 void Enemy::Update()
 {
 	m_pos += m_move;
-	if (m_pos.x < -640)
-	{
-		m_aliveFlg = false;
-	}
-
+	if (m_pos.x < -640)m_aliveFlg = false;
 
 	Math::Matrix transMat;
 	transMat = Math::Matrix::CreateTranslation(m_pos);

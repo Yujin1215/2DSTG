@@ -19,8 +19,6 @@ public:
 	void SetPos(Math::Vector3 _pos) { m_pos = _pos; }
 	void SetPos(float _x, float _y) { m_pos = { _x,_y,0.0f }; }//SetPosをオーバーロード
 
-
-
 	void SetMove(Math::Vector3 _move) { m_move = _move; }
 
 private:

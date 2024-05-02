@@ -27,5 +27,4 @@ private:
 
 	Scene* m_owner = nullptr;
 
-
 };

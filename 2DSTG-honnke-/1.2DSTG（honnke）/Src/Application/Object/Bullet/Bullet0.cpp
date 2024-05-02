@@ -9,18 +9,14 @@ void Bullet0::Update()
 	m_pos.y -= g;
 	m_pos += m_move;
 
-	if (m_pos.x > 640)
-	{
-		m_aliveFlg = false;
-	}
+	if (m_pos.x > 640)m_aliveFlg = false;
+
 	//敵と弾の当たり判定
 	for (auto& obj : m_owner->GetObjList())
 	{
-		//弾とプレイヤーとは当たり判定しない
 		if (obj->GetObjType() == ObjectType::Bullet)continue;
 		if (obj->GetObjType() == ObjectType::Player)continue;
 
-		//敵だったら当たり判定を行う
 		if (obj->GetObjType() == ObjectType::Enemy || obj->GetObjType() == ObjectType::Enemy1|| obj->GetObjType() == ObjectType::Enemy2)
 		{
 			//対象座標-弾座標＝対象のベクトル
@@ -30,10 +26,7 @@ void Bullet0::Update()
 			//球判定・・・ベクトルの長さで判定
 			if (v.Length() < 32.0f)
 			{
-				//Hit時の処理を行う
 				obj->Hit();
-
-				//弾もHitしたときの処理を行う
 				Hit();
 
 				if (rand() % 100 < 10.0)
@@ -55,13 +48,10 @@ void Bullet0::Update()
 
 					m_owner->AddObject(item);//リストを追加
 				}
-
 				break;
 			}
 		}
 	}
-
-
 
 	Math::Matrix transMat;
 	transMat = Math::Matrix::CreateTranslation(m_pos);
@@ -85,9 +75,7 @@ void Bullet0::Init()
 	m_move = { 10.0f,0.0f,0.0f };//移動量初期化
 }
 
-void Bullet0::Release()
-{
-}
+void Bullet0::Release(){}
 
 void Bullet0::Hit()
 {

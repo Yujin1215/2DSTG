@@ -7,16 +7,11 @@ void Enemy1::Update()
 	m_pos += m_move;
 
 	angle += 1.0f;
-	if (angle >= 360)
-	{
-		angle -= 360;
-	}
-		m_pos.y = sin(DirectX::XMConvertToRadians(angle)) * 360;
+	if (angle >= 360)angle -= 360;
 
+	m_pos.y = sin(DirectX::XMConvertToRadians(angle)) * 360;
 
 	if (m_pos.x < -640)m_aliveFlg = false;
-
-
 
 	Math::Matrix transMat;
 	transMat = Math::Matrix::CreateTranslation(m_pos.x,m_pos.y,0);
@@ -40,9 +35,7 @@ void Enemy1::Init()
 	m_move = { 0.0f,-2.0f,0.0f };
 }
 
-void Enemy1::Release()
-{
-}
+void Enemy1::Release(){}
 
 void Enemy1::Hit()
 {

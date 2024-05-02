@@ -22,13 +22,14 @@ void Player::Update()
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
 		m_pos.x -= m_move.x;
-		if (m_pos.x <- (640))m_pos.x = - (640);
+		if (m_pos.x < -(640))m_pos.x = -(640);
 	}
 	if (GetAsyncKeyState('D') & 0x8000)
 	{
 		m_pos.x += m_move.x;
-			if (m_pos.x >(640))m_pos.x = (640);
+		if (m_pos.x > (640))m_pos.x = (640);
 	}
+
 	//弾発射
 	if(m_upFlg==0)
 	{
@@ -168,7 +169,7 @@ void Player::Update()
 			}
 		}
 	}
-	else if (m_upFlg >= 6)
+	else if (m_upFlg == 6)
 	{
 		if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 		{
@@ -208,7 +209,6 @@ void Player::Update()
 	}
 
 	shotWait--;
-
 
 	//============================================================
 	//プレイヤーと敵の当たり判定・・・敵の情報が必要
@@ -258,6 +258,4 @@ void Player::Init()
 	m_objType = ObjectType::Player;
 }
 
-void Player::Release()
-{
-}
+void Player::Release(){}

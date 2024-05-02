@@ -35,14 +35,10 @@ public:
 		m_objList.push_back(_obj);
 	}
 
-
 private:
 
 	//全オブジェクトを可変長配列で管理
 	std::vector<std::shared_ptr<BaseObject>>m_objList;
-
-
-
 
  	Scene() {}
 
